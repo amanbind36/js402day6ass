@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        img {
+            width: 100%;
+        }
+        #btn{
+            align-items: center;
+            margin: auto;
+            width: 30%;
+        }
+        button{
+            font-size: 20px;
+            font-weight: bolder;
+            padding: 20px;
+            width: 100px;
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img id="slider" src="https://cdn.pixabay.com/photo/2014/11/03/13/33/spiderman-515215_640.jpg" alt="">
+    </div>
+    <div id="btn">
+        <button onclick="start()">Start</button>
+        <button onclick="stop()">Stop</button>
+    </div>
+
+    <script>
+        const img = [
+            "https://cdn.pixabay.com/photo/2015/09/09/22/07/iron-man-933709_640.jpg",
+            "https://cdn.pixabay.com/photo/2019/11/15/21/25/tank-4629329_1280.jpg",
+            "https://cdn.pixabay.com/photo/2024/02/22/19/46/ai-generated-8590747_640.png",
+            "https://cdn.pixabay.com/photo/2016/11/18/13/53/idol-1834688_1280.jpg",
+            "https://cdn.pixabay.com/photo/2014/11/03/13/33/spiderman-515215_640.jpg"
+        ];
+        let x;
+        let i = 0;
+        const sliderImg = document.getElementById("slider");
+
+        function start() {
+            x = setInterval(() => {
+                if (i >= img.length) {
+                    i = 0;
+                }
+                sliderImg.src = img[i++];
+            }, 2000);
+        }
+
+        function stop() {
+            clearInterval(x);
+        }
+    </script>
+</body>
+</html>
